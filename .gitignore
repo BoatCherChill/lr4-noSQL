@@ -1,0 +1,12 @@
+@"
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.vscode/
+.idea/
+.env
+test-clone/
+.DS_Store
+Thumbs.db
+"@ | Out-File -Encoding utf8 .gitignore

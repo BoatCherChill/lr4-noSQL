@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: lr4-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - lr4-net
+
+  api:
+    build: .
+    container_name: lr4-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017     # ← имя сервиса, не localhost!
+    depends_on:
+      - mongodb
+    networks:
+      - lr4-net
+
+volumes:
+  mongo_data:
+
+networks:
+  lr4-net:
