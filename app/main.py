@@ -5,7 +5,6 @@ from app.database import get_collection
 
 app = FastAPI(title="LR4 — MongoDB")
 
-# вспомогательная функция для проверки ObjectId
 def valid_oid(id_str: str) -> ObjectId:
     if not ObjectId.is_valid(id_str):
         raise HTTPException(400, "Неверный id")
